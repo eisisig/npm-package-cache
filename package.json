@@ -8,15 +8,13 @@
   "bin": {
     "npm-package-cache": "dist/cli.js"
   },
-  "scripts": {
-    "postinstall": "npm run build",
-    "build": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bugs": {
+    "url": "https://github.com/eisisig/npm-package-cache/issues"
   },
   "keywords": [
     "npm",
-    "cache",
     "package",
+    "cache",
     "local"
   ],
   "author": "Eisi Sig <im.eisisig@gmail.com>",
