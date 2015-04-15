@@ -54,12 +54,14 @@ var Manager = (function () {
 			var hash = this.getFileHash();
 			var archive = this.getCachedArchive(hash);
 
+			_Logger2['default'].info('Archive ' + archive);
+
 			if (opts.forceFetch) {
 				_Logger2['default'].info('FORCE installing npm packages');
 				this.installPackages(true);
 			} else {
 				if (archive) {
-					_Logger2['default'].info('found a cache file');
+					_Logger2['default'].success('found a cache file');
 					this.extract(archive);
 				} else {
 					_Logger2['default'].info('install npm packages');
@@ -102,7 +104,13 @@ var Manager = (function () {
 		value: function getCachedArchive(hash) {
 
 			var archives = this.getArchives() || [];
+
+			_Logger2['default'].info('Found archives ' + archives.join(', '));
+
 			var pattern = _config2['default'].cacheDir + '/' + hash + '.7z';
+
+			_Logger2['default'].info('Searching for file: ' + pattern);
+
 			var file = archives.indexOf(pattern);
 
 			return file !== -1 && archives[file];
@@ -110,6 +118,7 @@ var Manager = (function () {
 	}, {
 		key: 'getArchives',
 		value: function getArchives() {
+			_Logger2['default'].info('Cahce dir: ' + _config2['default'].cacheDir);
 			return _glob2['default'].sync(_config2['default'].cacheDir + '/*.7z');
 		}
 	}, {
@@ -149,9 +158,13 @@ var Manager = (function () {
 			var isShrinkWrapped = _path2['default'].resolve(process.cwd(), 'npm-shrinkwrap.json');
 
 			if (_fs2['default'].existsSync(isShrinkWrapped)) {
-				return this.hashFile(isShrinkWrapped);
+				var hashedFile = this.hashFile(isShrinkWrapped);
+				_Logger2['default'].info('Using npm-shrinkwrap.json - ' + hashedFile);
+				return hashedFile;
 			} else {
-				return this.hashFile(_path2['default'].resolve(process.cwd(), 'package.json'));
+				var hashedFile = this.hashFile(_path2['default'].resolve(process.cwd(), 'package.json'));
+				_Logger2['default'].info('Using pacakge.json - ' + hashedFile);
+				return this.hashFile(hashedFile);
 			}
 		}
 	}, {
