@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A local npm cache that zips dependancies and restores them if a hash matches",
   "main": "dist/cli.js",
+  "repository": "eisisig/npm-package-cache",
   "preferGlobal": true,
   "bin": {
     "npm-package-cache": "dist/cli.js"
@@ -18,7 +19,7 @@
     "package",
     "local"
   ],
-  "author": "Eisi Sig",
+  "author": "Eisi Sig <im.eisisig@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "MD5": "^1.2.1",
