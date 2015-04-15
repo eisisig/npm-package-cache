@@ -19,12 +19,14 @@
   ],
   "author": "Eisi Sig <im.eisisig@gmail.com>",
   "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0"
+  },
   "dependencies": {
     "MD5": "^1.2.1",
     "chalk": "^1.0.0",
     "glob": "^5.0.5",
-    "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0",
     "nomnom": "^1.8.1",
     "shelljs": "^0.4.0"
   }
