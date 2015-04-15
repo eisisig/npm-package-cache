@@ -1,10 +1,10 @@
 #! /usr/bin/env node
 'use strict';
 
-import parser from 'nomnom';
-import shell from 'shelljs';
-import Manager from './manager';
-import config from '../config';
+var parser = require('nomnom');
+var shell = require('shelljs');
+var Manager = require('./lib/manager');
+var config = require('./config');
 
 parser.command('install')
 	.option('forceFetch', {
@@ -18,6 +18,13 @@ parser.command('install')
 		Manager.install(opts);
 	})
 	.help("install dependencies");
+
+parser.command('list')
+	.callback(function ( opts ) {
+		var cache = Manager.getCache();
+		console.log(cache.join('\n'));
+	})
+	.help('list all files in cache folder');
 
 parser.command('clean')
 	.callback(function ( opts ) {

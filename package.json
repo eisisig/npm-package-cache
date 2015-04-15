@@ -2,11 +2,11 @@
   "name": "npm-package-cache",
   "version": "1.0.7",
   "description": "A local npm cache that zips dependancies and restores them if a hash matches",
-  "main": "dist/cli.js",
+  "main": "index.js",
   "repository": "eisisig/npm-package-cache",
   "preferGlobal": true,
   "bin": {
-    "npm-package-cache": "dist/cli.js"
+    "npm-package-cache": "index.js"
   },
   "bugs": {
     "url": "https://github.com/eisisig/npm-package-cache/issues"
