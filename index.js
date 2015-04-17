@@ -7,18 +7,18 @@ var Manager = require('./lib/manager');
 var config = require('./config');
 
 parser.command('install')
+	.option('production', {
+		abbr: 'p',
+		flag: true,
+		default: false,
+		help: 'use the procution flag for npm'
+	})
 	.option('forceFetch', {
 		abbr: 'f',
 		full: 'force-fetch',
 		flag: true,
 		default: false,
 		help: 'don\'t use the cache and fetch the dependencies'
-	})
-	.option('production', {
-		abbr: 'p',
-		flag: true,
-		default: false,
-		help: 'use the procution flag for npm'
 	})
 	.callback(function ( opts ) {
 		Manager.install(opts);
