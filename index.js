@@ -16,6 +16,7 @@ parser.command('install')
 	})
 	.option('production', {
 		abbr: 'p',
+		flag: true,
 		default: false,
 		help: 'use the procution flag for npm'
 	})
