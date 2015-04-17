@@ -14,6 +14,11 @@ parser.command('install')
 		default: false,
 		help: 'don\'t use the cache and fetch the dependencies'
 	})
+	.option('production', {
+		abbr: 'p',
+		default: false,
+		help: 'use the procution flag for npm'
+	})
 	.callback(function ( opts ) {
 		Manager.install(opts);
 	})
