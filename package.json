@@ -21,10 +21,10 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "MD5": "^1.2.1",
+    "md5": "^1.2.1",
     "chalk": "^1.0.0",
-    "glob": "^5.0.5",
+    "glob": "^6.0.1",
     "nomnom": "^1.8.1",
-    "shelljs": "^0.4.0"
+    "shelljs": "^0.5.3"
   }
 }
